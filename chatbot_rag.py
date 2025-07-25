@@ -14,7 +14,7 @@ from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
 
 load_dotenv()
 
-st.title("Chatbot")
+st.title("Caltech RAG Chatbot")
 
 # initialize pinecone database
 pc = Pinecone(api_key=os.environ.get("PINECONE_API_KEY"))
@@ -36,7 +36,7 @@ if "messages" not in st.session_state:
     st.session_state.messages.append(SystemMessage("You are an assistant for question-answering tasks. "))
 
     # This is the message the user will see from the bot when they open the app
-    st.session_state.messages.append(AIMessage("Hello! I'm Alexander's RAG assistant! Ask me anything about Alexander Lin."))
+    st.session_state.messages.append(AIMessage("Hello! I'm your friendly Caltech RAG Assistant chatbot! Ask me anything related to Caltech policies, development standards, or student handbooks! I can help you find the information you need."))
 # display chat messages from history on app rerun
 for message in st.session_state.messages:
     if isinstance(message, HumanMessage):
